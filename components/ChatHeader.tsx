@@ -8,9 +8,9 @@ import { useRouter } from "next/navigation";
 const ChatHeader = ({ user }: { user?: any }) => {
   const router = useRouter();
 
-  const handleLoginWithGoogle = () => {
+  const handleLoginWithGoogle = async () => {
     const supabase = supabaseBrowser();
-    supabase.auth.signInWithOAuth({
+    await supabase.auth.signInWithOAuth({
       provider: "google",
       options: {
         redirectTo: location.origin + "/auth/callback",
