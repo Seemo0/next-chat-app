@@ -1,12 +1,28 @@
 "use client";
 
+import { supabaseBrowser } from "@/lib/supabase/browser";
 import ChatIcon from "./ChatIcon";
 import { Button } from "./ui/button";
+import { useRouter } from "next/navigation";
 
 const ChatHeader = ({ user }: { user?: any }) => {
-  const handleLoginWithGoogle = () => {};
+  const router = useRouter();
 
-  const handleLogout = () => {};
+  const handleLoginWithGoogle = () => {
+    const supabase = supabaseBrowser();
+    supabase.auth.signInWithOAuth({
+      provider: "google",
+      options: {
+        redirectTo: location.origin + "/auth/callback",
+      },
+    });
+  };
+
+  const handleLogout = async () => {
+    const supabase = supabaseBrowser();
+    await supabase.auth.signOut();
+    router.refresh();
+  };
 
   return (
     <div className="h-20">
