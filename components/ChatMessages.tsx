@@ -1,6 +1,6 @@
 import { supabaseServer } from "@/lib/supabase/server";
 import { Suspense } from "react";
-import ListMessages from "@/components/ListMessages";
+import ListMessages from "./ListMessages";
 import { LIMIT_MESSAGE } from "@/lib/constants";
 import InitMessages from "@/lib/store/initMessages";
 
