@@ -8,6 +8,8 @@ import { useRouter } from "next/navigation";
 const ChatHeader = ({ user }: { user?: any }) => {
   const router = useRouter();
 
+  console.log("user=====>", user);
+
   const handleLoginWithGoogle = async () => {
     const supabase = supabaseBrowser();
     await supabase.auth.signInWithOAuth({
