@@ -18,7 +18,7 @@ export default function Message({ message }: { message: Imessage }) {
     <div className="flex gap-2">
       <div>
         <img
-          src={message.users?.avatar_url!}
+          src={user?.user_metadata.avatar_url!}
           alt={message.users?.display_name!}
           width={40}
           height={40}
